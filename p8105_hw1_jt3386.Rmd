@@ -1,22 +1,20 @@
 ---
 title: "Solution for Homework 1"
-author: Jacky Tao
+author: "Jacky Tao"
 date: 2022-09-15
 output: github_document
 ---
 
-I'm an R Markdown document! 
-
-# Section 1
+# Problem 1
 
 Here's a **code chunk** that samples from 
 a _normal distribution_:
 
 ```{r}
-samp = rnorm(100)
-length(samp)
-```
+data("penguins", package = "palmerpenguins")
 
+```
+S
 # Section 2
 
 I can take the mean of the sample, too!
