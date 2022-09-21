@@ -48,3 +48,44 @@ ggsave("p8105_hw1_jt3386_scatterplot.pdf")
 ```
 
 # Problem 2
+
+First create a data frame.
+
+```{r}
+pb2_df = 
+  tibble(
+    rdm_sample = rnorm(10),
+    rdm_sample_pos = rdm_sample > 0,
+    chr_sample = c("A", "B", "C", "D", "E", "F", "G", "H", "I", "J"),
+    fct_sample = factor(x = c(1, 3, 2, 1, 1, 3, 2, 2, 1, 3),
+                        labels = c("One", "Two", "Three"))
+  )
+pb2_df
+```
+
+Take the mean of each variable.
+
+```{r, warning = FALSE}
+mean(pull(pb2_df,rdm_sample))
+mean(pull(pb2_df,rdm_sample_pos))
+mean(pull(pb2_df,chr_sample))
+mean(pull(pb2_df,fct_sample))
+```
+
+The double variables and the logical variables work, however, the character variables and the factor variables don't work.
+
+Apply the `as.numeric` function to the logical, character, and factor vector.
+
+```{r, eval = FALSE}
+as.numeric(pull(pb2_df,rdm_sample_pos))
+as.numeric(pull(pb2_df,chr_sample))
+as.numeric(pull(pb2_df,fct_sample))
+```
+
+The logical variables are converted to 0 or 1. If the value is TRUE, it will be converted to 1. And if the value is FALSE, it will be converted to 0.
+
+The character variables can not be converted to numeric variables.
+
+The factor variables can be converted to numeric variables and the numeric codes corresponding to the factor levels will be returned.
+
+This could help explain that I can take the mean of logical variables because they are just converted to numeric variables, but that could not help explain why I cannot take the mean of factor variables.
