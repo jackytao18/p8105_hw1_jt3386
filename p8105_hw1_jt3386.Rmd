@@ -5,17 +5,46 @@ date: 2022-09-15
 output: github_document
 ---
 
+```{r setup, include = FALSE}
+library(tidyverse)
+```
+
 # Problem 1
 
-Here's a **code chunk** that samples from 
-a _normal distribution_:
+Load the `penguins` dataset first.
 
 ```{r}
 data("penguins", package = "palmerpenguins")
-
 ```
-S
-# Section 2
 
-I can take the mean of the sample, too!
-The mean is `r mean(samp)`.
+Then, let's describe the dataset!
+
+Here's the summary of the dataset.
+
+```{r}
+summary(penguins)
+```
+
+I think `species`, `island` are important qualitative variables, and `flipper_length_mm`, `body_mass_g` are important quantitative variables.
+
+The dataset has `r nrow(penguins)` rows and `r ncol(penguins)` columns.
+
+The mean flipper length is `r round(mean(penguins$flipper_length_mm,na.rm = TRUE),2)` mm.
+
+Make a scatterplot of `flipper_length_mm`(y) vs `bill_length_mm`(x).
+
+```{r, warning = FALSE}
+ggplot(data = penguins,
+       aes(x = bill_length_mm,
+           y = flipper_length_mm)) + 
+  geom_point(aes(color = species,
+                 shape = species))
+```
+
+Export my scatterplot.
+
+```{r, warning = FALSE, message = FALSE}
+ggsave("p8105_hw1_jt3386_scatterplot.pdf")
+```
+
+# Problem 2
