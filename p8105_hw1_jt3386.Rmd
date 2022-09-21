@@ -1,6 +1,6 @@
 ---
-title: "Solution for Homework 1"
-author: "Jacky Tao"
+title: "Solutions for Homework 1"
+author: "Jiajun Tao"
 date: 2022-09-15
 output: github_document
 ---
